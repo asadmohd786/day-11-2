@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custom Tooltip</title>
+  <style>
+    #tooltip {
+      position: absolute;
+      background-color: #333;
+      color: #fff;
+      padding: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="element">Hover over me</div>
+
+  <div id="tooltip"></div>
+
+  <script>
+    const element = document.getElementById('element');
+    const tooltip = document.getElementById('tooltip');
+
+    // Add event listeners for mouseenter and mouseleave events
+    element.addEventListener('mouseenter', showTooltip);
+    element.addEventListener('mouseleave', hideTooltip);
+
+    function showTooltip(event) {
+      const elementText = event.target.textContent;
+      tooltip.textContent = `You are hovering over "${elementText}"`;
+      tooltip.style.display = 'block';
+    }
+
+    function hideTooltip() {
+      tooltip.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
